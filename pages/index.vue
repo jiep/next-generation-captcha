@@ -19,12 +19,12 @@ import axios from '~/plugins/axios'
 
 export default {
   async asyncData () {
-    let { data } = await axios.get('/api/users')
+    let { data } = await axios.get('/api/paintings')
     return { users: data }
   },
   head () {
     return {
-      title: 'Users'
+      title: 'Paintings'
     }
   }
 }
