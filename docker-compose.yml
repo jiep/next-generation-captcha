@@ -1,0 +1,28 @@
+version: '2'
+services:
+  app:
+    build: app
+    ports:
+      - "3000"
+    links:
+      - database
+    volumes:
+    - images:/usr/data
+  database:
+    image: mongo
+    ports:
+      - "27017"
+    volumes:
+      - paintings:/data/db
+  # reverse-proxy:
+  #   build: reverse-proxy
+  #   ports:
+  #     - "80:80"
+  #     - "443:443"
+  #   links:
+  #     - app:app
+volumes:
+  images:
+    external: true
+  paintings:
+    external: true
