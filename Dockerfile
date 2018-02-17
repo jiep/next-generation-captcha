@@ -1,7 +1,5 @@
 FROM node:9.4.0-alpine
 
-ENV HOST 0.0.0.0
-
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
@@ -11,5 +9,5 @@ COPY . /usr/src/app/
 RUN yarn
 
 EXPOSE 3000
-RUN yarn build
-CMD [ "yarn", "start" ]
+
+CMD [ "yarn", "dev" ]
