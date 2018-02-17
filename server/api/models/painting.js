@@ -5,10 +5,10 @@ const paintingSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  // {
-  //   img: String,
-  //   required: true,
-  // },
+  img: {
+    type: String,
+    required: true,
+  },
   isGenerated: {
     type: Boolean,
     required: true,

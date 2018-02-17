@@ -1,9 +1,10 @@
 import { Router } from 'express';
 import { newPainting } from './functions/paintings';
+import upload from './storage';
 
 const router = Router();
 
-router.post('/paintings', newPainting);
+router.post('/paintings', upload.single('file'), newPainting);
 
 router.get('/paintings', (req, res, next) => {
   res.json([]);
