@@ -22,8 +22,16 @@ export function newPainting(req, res, next) {
   }
 };
 
+export function getPaintingById(req, res, next) {
+  Painting.findById(req.params.id, '_id img', (err, painting) => {
+    if(err) res.status(200).send(error);
+
+    res.status(200).jsonp(painting);
+  });
+}
+
 export function getPaintings(req, res, next) {
   // TODO
 };
 
-export default { newPainting, getPaintings };
+export default { newPainting, getPaintingById, getPaintings };
