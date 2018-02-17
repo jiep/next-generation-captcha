@@ -1,9 +1,9 @@
-import { Router } from 'express'
+import { Router } from 'express';
 
-import paintings from './paintings'
+import paintings from './paintings';
 
-const router = Router()
+const router = Router();
 
-router.use(paintings)
+router.use(paintings);
 
-export default router
+export default router;
