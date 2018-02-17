@@ -16,12 +16,22 @@ module.exports = {
   /*
   ** Global CSS
   */
-  css: ['~/assets/css/main.css'],
+  css: [
+    'bulma/css/bulma.css',
+    '~/assets/css/main.css',
+  ],
   /*
   ** Add axios globally
   */
   build: {
     vendor: ['axios'],
+    postcss: {
+      plugins: {
+        'postcss-custom-properties': {
+          warnings: false
+        }
+      }
+    },
     /*
     ** Run ESLINT on save
     */
