@@ -1,7 +1,7 @@
 import multer from 'multer';
 import crypto from 'crypto';
 import path from 'path';
-import { UPLOAD_DESTINATION } from './config';
+import { UPLOAD_DESTINATION } from '../../config';
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => cb(null, UPLOAD_DESTINATION),

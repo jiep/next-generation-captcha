@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 
 import api from './api';
+import { UPLOAD_DESTINATION } from './config';
 
 const app = express();
 const host = process.env.HOST || '127.0.0.1';
@@ -16,6 +17,8 @@ app.set('port', port);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use('/images', express.static(UPLOAD_DESTINATION));
 
 // Import API Routes
 app.use('/api', api);
