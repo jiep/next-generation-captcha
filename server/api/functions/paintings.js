@@ -26,7 +26,7 @@ export function newPainting(req, res, next) {
 };
 
 export function getPaintingById(req, res, next) {
-  Painting.findById(req.params.id, '_id img', (err, painting) => {
+  Painting.findById(req.params.id, FIELDS, (err, painting) => {
     if(err) res.status(200).send(err);
     res.status(200).jsonp(painting);
   });
