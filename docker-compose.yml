@@ -1,0 +1,38 @@
+version: '3'
+services:
+  app:
+    build: .
+    depends_on:
+      - database
+    volumes:
+      - images:/usr/data
+    environment:
+      HOST: "0.0.0.0"
+    networks:
+      - flat-network
+    ports:
+      - "3000:3000"
+  database:
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - paintings:/data/db
+    networks:
+      - flat-network
+  # reverse-proxy:
+  #   build: reverse-proxy
+  #   ports:
+  #     - "80:80"
+  #     - "443:443"
+  #   links:
+  #     - app:app
+
+networks:
+  flat-network:
+
+volumes:
+  images:
+    external: true
+  paintings:
+    external: true

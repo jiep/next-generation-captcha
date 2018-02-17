@@ -1,10 +1,9 @@
-import { Router } from 'express'
+import { Router } from 'express';
 
-import users from './users'
+import paintings from './paintings';
 
-const router = Router()
+const router = Router();
 
-// Add USERS Routes
-router.use(users)
+router.use(paintings);
 
-export default router
+export default router;
