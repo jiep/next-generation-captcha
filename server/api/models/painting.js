@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import random from 'mongoose-simple-random';
 
 const paintingSchema = new mongoose.Schema({
   name: {
@@ -14,5 +15,7 @@ const paintingSchema = new mongoose.Schema({
     required: true,
   },
 });
+
+paintingSchema.plugin(random);
 
 export default mongoose.model('Painting', paintingSchema);
