@@ -5,9 +5,9 @@
       div.overlay
         div.field.is-grouped
           p.control
-            a.button.is-primary.is-outlined.is-inverted Real
+            a.button.is-primary.is-outlined.is-inverted(@click="onClickReal") Real
           p.control
-            a.button.is-primary.is-outlined.is-inverted Generated
+            a.button.is-primary.is-outlined.is-inverted(@click="onClickGenerated") Generated
 </template>
 
 <script>
@@ -23,6 +23,12 @@
     methods: {
       returnImage (painting) {
         return `${BASE_IMAGES}/${painting.img}`
+      },
+      onClickGenerated () {
+        this.$emit('generated', true)
+      },
+      onClickReal () {
+        this.$emit('real', false)
       }
     }
   }

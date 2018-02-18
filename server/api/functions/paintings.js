@@ -40,4 +40,9 @@ export function getPaintings(req, res, next) {
   });
 };
 
-export default { newPainting, getPaintingById, getPaintings };
+export function submitForm(req, res, next) {
+  let { paintings } = req.body;
+  res.send({message: 'Information successfully sent'});
+};
+
+export default { newPainting, getPaintingById, getPaintings, submitForm };

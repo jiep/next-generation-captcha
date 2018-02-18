@@ -5,32 +5,27 @@ section.hero.is-fullheight
 
   div.hero-body
     div.container.has-text-centered
-      div.columns
-        div.column.is-10.is-offset-1
-          div.columns
-            Painting(:painting="paintings[0]")
-            Painting(:painting="paintings[1]")
-            Painting(:painting="paintings[2]")
-          div.columns
-            Painting(:painting="paintings[3]")
-            Painting(:painting="paintings[4]")
-            Painting(:painting="paintings[5]")
+      PaintingList(:paintings="paintings")
 </template>
 
 <script>
 import axios from '~/plugins/axios'
 
 import Navbar from '../components/Navbar'
-import Painting from '../components/Painting'
+import PaintingList from '../components/PaintingList'
 
 export default {
   components: {
     Navbar,
-    Painting
+    PaintingList
   },
   async asyncData () {
     let { data } = await axios.get('/api/paintings')
-    return { paintings: data }
+    const paintings = data.map(painting => {
+      painting['isGenerated'] = false
+      return painting
+    })
+    return { paintings }
   },
   head () {
     return {
