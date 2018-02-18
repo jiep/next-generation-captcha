@@ -8,8 +8,6 @@
             a.button.is-primary.is-outlined.is-inverted Real
           p.control
             a.button.is-primary.is-outlined.is-inverted Generated
-        //- a.button.is-primary.is-outlined.is-inverted Real
-        //- a.button.is-primary.is-outlined.is-inverted Generated
 </template>
 
 <script>
@@ -49,7 +47,7 @@
     text-align: center;
     padding-top: 90px;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     justify-content: center;
     align-items: center;
   }
